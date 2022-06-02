@@ -1,0 +1,53 @@
+<h3>Select Language</h3>
+<ng-select
+  *ngIf="action === 'create'"
+  [items]="myArray"
+  [multiple]="true"
+  bindLabel="name"
+  groupBy="selectedAllGroup"
+  [selectableGroup]="true"
+  [selectableGroupAsModel]="false"
+  [closeOnSelect]="false"
+  bindValue="name"
+  [(ngModel)]="selected_languages"
+  [ngModelOptions]="{ standalone: true }"
+>
+  <ng-template
+    ng-optgroup-tmp
+    let-item="item"
+    let-item$="item$"
+    let-index="index"
+  >
+    <input id="item-{{ index }}" type="checkbox" [ngModel]="item$.selected" />
+    Select All
+  </ng-template>
+
+  <ng-template
+    ng-option-tmp
+    let-item="item"
+    let-item$="item$"
+    let-index="index"
+  >
+    <input id="item-{{ index }}" type="checkbox" [ngModel]="item$.selected" />{{
+      item.name
+    }}
+  </ng-template>
+</ng-select>
+
+<br />
+<small>Selected Langauges: {{ selected_languages | json }}</small>
+
+<br />
+<ng-select
+  [closeOnSelect]="true"
+  placeholder="Primary Language"
+  [(ngModel)]="primary_language"
+  (change)=onChange($event);
+>
+  <ng-option *ngFor="let data of selected_languages" [value]="data">{{
+    data
+  }}</ng-option>
+</ng-select>
+
+<br />
+<h3>Selected Primary language: {{ primary_language | json }}</h3>

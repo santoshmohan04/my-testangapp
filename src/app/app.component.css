@@ -1,0 +1,33 @@
+p {
+  font-family: Lato;
+}
+
+a {
+  text-align: center;
+  color: #2296fb;
+}
+
+a:hover {
+  background-color: #2296fb;
+  color: #ffffff;
+}
+
+.list-group {
+  border-radius: 0%;
+}
+
+.card-header {
+  background-color: #f5f5f5;
+}
+
+.btn {
+  border-radius: 50px;
+  border-style: solid;
+  border-color: black;
+}
+
+.nav {
+  border-radius: 50px;
+  border-style: solid;
+  border-color: black;
+}
